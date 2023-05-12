@@ -5,6 +5,8 @@ import { pageProduit } from '../page-object/pageproduit';
 import { pageResultat } from '../page-object/pageresultat';
 import { SignInPage } from '../page-object/signinpage';
 import { pageLivraison } from '../page-object/pagelivraison';
+import { deuxiemeResultat } from '../page-object/deuxiemeresultat';
+import { pagePrix } from '../page-object/prix';
 
 
 
@@ -22,13 +24,11 @@ test('Option de livraison', async ({ page }) => {
     const accueil = new pageAccueil(page);
     const resultat = new pageResultat(page);
     const produit = new pageProduit(page);
-    const panier = new pagePanier(page);
-    const signin = new SignInPage(page);
-    const livraison = new pageLivraison(page);
+    const resultatdeux = new deuxiemeResultat(page);
+    const prix = new pagePrix(page);
     await accueil.pageAccueil();
     await resultat.pageResultat();
     await produit.pageProduit();
-    await panier.pagePanier();
-    await signin.SignInPage();
-    await livraison.pageLivraison();
+    await resultatdeux.deuxiemeResultat();
+    await prix.convertPrixToNumber();
 });

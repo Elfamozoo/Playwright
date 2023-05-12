@@ -9,6 +9,5 @@ export class pageAccueil {
         await this.page.screenshot({ path: 'test-results/Page accueil.png', fullPage: true, });
         await this.page.fill('#twotabsearchtextbox', 'basket nike');
         await this.page.click('#nav-search-submit-button');
-
     }
 }
