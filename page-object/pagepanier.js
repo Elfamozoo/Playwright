@@ -9,3 +9,4 @@ export class pagePanier {
         await this.page.click('#sc-buy-box-ptc-button');
     }
 }
+
