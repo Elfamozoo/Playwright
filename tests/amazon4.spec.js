@@ -3,7 +3,8 @@ import { pageAccueil } from '../page-object/pageaccueil';
 import { pagePanier } from '../page-object/pagepanier';
 import { pageProduit } from '../page-object/pageproduit';
 import { pageResultat } from '../page-object/pageresultat';
-import { pageSignIn } from '../page-object/pagesignin';
+import { SignInPage } from '../page-object/signinpage';
+import { pageLivraison } from '../page-object/pagelivraison';
 
 
 
@@ -15,14 +16,16 @@ test.beforeEach(async ({ page }) => {
 
 
 test('Option de livraison', async ({ page }) => {
-    const achat = new pageAccueil(page);
+    const accueil = new pageAccueil(page);
     const resultat = new pageResultat(page);
     const produit = new pageProduit(page);
     const panier = new pagePanier(page);
-    const signin = new pageSignIn(page);
-    await achat.pageAccueil();
+    const signin = new SignInPage(page);
+    const livraison = new pageLivraison(page);
+    await accueil.pageAccueil();
     await resultat.pageResultat();
     await produit.pageProduit();
     await panier.pagePanier();
-    await signin.pageSignIn();
+    await signin.SignInPage();
+    await livraison.pageLivraison();
 });
